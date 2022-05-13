@@ -1,10 +1,11 @@
-# Kumo template to sync articles with dev.to
+# fargito's blog source
 
-## Follow the first install doc
+https://dev.to/fargito
 
-==> [First installation](./docs/install.md) <==
+## Blog posts
 
-## Read documentation
+
+## Documentation
 
 - [Context](./docs/context.md)
 - [Usage](./docs/usage.md)
