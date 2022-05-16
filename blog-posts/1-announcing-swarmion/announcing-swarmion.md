@@ -1,6 +1,6 @@
 ---
 published: false
-title: 'Introducing Swarmion, a framework for shipping type-safe Serverless microservices at scale'
+title: 'Introducing Swarmion 🐝, a framework for shipping type-safe Serverless microservices at scale'
 cover_image:
 description: 'Description of the article'
 tags: serverless, typescript, monorepo, microservices
@@ -10,61 +10,99 @@ canonical_url:
 
 The serverless computing paradigm introduced a lots of opportunities to create more scalable and cost-efficient software, but it also came with its lot of challenges, some of which we harshly experienced.
 
-## What is Swarmion?[](https://www.swarmion.dev/docs#what-is-swarmion)
+After more than two years spent building multiple real world applications, ranging from small startups to large groups, we have decided to share our learnings and help other teams build awesome products.
+
+This is why we would like to introduce **Swarmion**, an open-source framework, dedicated to Serverless microservices. A great emphasis has been done on developer experience, since working with a Typescript monorepo is a challenge.
+
+## What is Swarmion? 🐝
 
 Swarmion is an open-source Framework for building Type-safe Serverless microservices at scale. It takes full advantage of the **Serverless Framework** to handle deployment and provisioning of resources, while adding support for microservices and end-to-end type-safety.
 
-It contains the knowledge of more than two years building multiple real world applications, ranging from small startups to large groups.
+It is composed of two parts:
 
-A great emphasis has been done on developer experience, since working with a Typescript monorepo can be a challenge. The swarmion template uses state of the art tools to ensure the best developer experience possible.
+- a **template** for starting state-of-the-art projects
+- a set of **tools and plugins**, to ease the communication between microservices and secure their deployment
+
+Today, we are going to focus on the first part, more articles to come...
 
 ## TL:DR, create an app using the swarmion template
 
-_Demo of the tool, using the [https://github.com/swarmion/template](https://www.github.com/swarmion/template) template button_
+To create a Swarmion project, head to [https://github.com/swarmion/template](https://www.github.com/swarmion/template).
 
-## Our core beliefs[](https://www.swarmion.dev/docs#our-core-beliefs)
+Click the "use this template" button
 
-### Your codebase should adapt to your team organization[](https://www.swarmion.dev/docs#your-codebase-should-adapt-to-your-team-organization)
+![Use this template button](./static/use_this_template_button.png)
+
+And you're all set! Follow the [install docs](https://www.swarmion.dev/docs/getting-started/installation).
+
+## Quick overview
+
+The generated repo will have the following structure.
+
+```
+├── backend/
+|   ├── core/                       # core service
+|   ├── users/                      # users service
+|   └── ...                         # other deployed services
+|
+├── frontend/
+|   ├── app/
+|   ├── cloudfront/
+|   └── ...                         # other deployed services
+|
+├── commonConfiguration/            # configuration files such as jest, babel...
+|   ├── babel.config.js
+|   └── lintstaged-base-config.js
+|
+├── contracts/                      # JSONSchema-based binding contracts.
+|   ├── core-contracts/
+|   ├── users-contracts/
+|   └── ...                         # other contracts, used between deployed services
+|
+├── packages/
+|   ├── configuration/              # common constants used in all services
+|   ├── serverless-configuration/   # common constants used in all serverless deployed services
+|   ├── serverless-helpers/         # a set of shared helpers
+|   └── ...                         # other internal shared packages
+|
+├── package.json                   # shared dependencies and global scripts
+└── yarn.lock                      # unique lock file, using yarn workspaces
+
+```
+
+To learn more about this structure, head to the [documentation](https://www.swarmion.dev/docs/code-structure/monorepo)!
+
+## Our core beliefs
+
+### Your codebase should adapt to your team organization
 
 Changes in the way you organize your teams should not have an impact on the speed at which you can develop and deploy new features. Therefore, Swarmion uses a flexible microservices approach in a monorepo.
 
-### DRY (Don't Repeat Yourself)[](https://www.swarmion.dev/docs#dry-dont-repeat-yourself)
+### DRY (Don't Repeat Yourself)
 
 Having several teams working in the same environment requires efficient collaboration. Swarmion allows to clearly separate the shared logic and interfaces from the service-specific logic for better decoupling.
 
-### Developer experience is key for code quality[](https://www.swarmion.dev/docs#developer-experience-is-key-for-code-quality)
+### Developer experience is key for code quality
 
 As your codebase grows, testing and deployment times are likely to skyrocket. Swarmion uses optimized low-level software (esbuild, vitejs) to reduce testing and building times and a smart monorepo management tool ([Nx](https://nx.dev/)) to provide a top-level developer experience and reduce CI/CD delays.
 
-### Trust your deployments (beta)[](https://www.swarmion.dev/docs#trust-your-deployments-beta)
-
-As the number of moving parts in your organization increases, it is paramount to secure the deployment process. At each deployment, Swarmion validates requested changes against all impacted services to prevent breaking changes.
-
-## Template structure
-
-_Schema of generated services and packages, with a quick explanation of each of them_
-
-_Show what commands to run_
-
 ## ✨ Template features
 
-The template comes with state of the art tooling for a typescript monorepo. The main philosophy is to allow easy customization of the different tools used in the packages, without having to write too many code; every tool can be configured at the root level and extended through composition at the package level.
+The template comes with state of the art tooling for a Typescript monorepo. The main philosophy is to allow easy customization of the different tools used in the packages, without having to write too many code; every tool can be configured at the root level and extended through composition at the package level.
 
 ### Yarn 3 with workspaces
 
-Enables you to create a monorepo with multiple packages, each with their own dependencies. Every package in the monorepo is considered as a npm package inside the monorepo, with every modification to its source code being instantly available to the other packages.
+Yarn 3 and workspaces allows to create a monorepo with multiple packages, each with their own dependencies. Every package in the monorepo is considered as an npm package inside the monorepo. Every modification to its source code is instantly available to the other packages.
 
 ### Nx
 
-A powerful and extensible build system. It is used in the template to manage dependencies between packages, provide visualization of the monorepo dependencies through the [`yarn nx graph` command](https://nx.dev/cli/dep-graph) and gain access to powerful custom generators (at the time, our [nx plugin](https://www.swarmion.dev/docs/code-structure/nx-plugin) has two generators, for libraries and serverless services).
+A powerful and extensible build system, Nx, is used in the template to manage dependencies between packages, provide visualization of the monorepo dependencies through the [`yarn nx graph` command](https://nx.dev/cli/dep-graph) and gain access to powerful custom generators. Our [nx plugin](https://www.swarmion.dev/docs/code-structure/nx-plugin) already has two generators, for libraries and serverless services (more are coming).
 
-Another feature Nx lies in the computation caching system, which allows to avoid unnecessary computation when running commands inside the monorepo. For example, running `yarn package` at the root level of the monorepo will only run the command in packages which code has changed since the last time it was run.
-
-Finally, through the [`affected` commands](https://nx.dev/using-nx/affected), run targets only against modified code, both in local development and in CI/CD.
+Nx also avoids unnecessary computation when running commands inside the monorepo, using local caching and changes detection for an smooth developer experience and an optimized CI/CD.
 
 ### Typescript
 
-A strict and strong Typescript configuration at the root level, extended throughout the packages using composition. Since every package inside the monorepo is using Typescript, every line of code can be statically checked.
+Since every package inside the monorepo is using Typescript, every line of code can be statically checked. A strict and strong Typescript configuration is located at the root level, extended throughout the packages using composition.
 
 ### ESLint
 
@@ -72,7 +110,7 @@ A comprehensive set of formatting (through [`eslint-plugin-prettier`](https://gi
 
 ### Shared Typescript libraries
 
-Easily share any sort of code (`ts` or `tsx`) between two services by defining it in a shared library. Packages are transpiled in `cjs`, `esm` (thanks to [Babel](https://babeljs.io/)) and `.d.ts` Typescript declaration file, to enable any usage across the monorepo.
+One of the main challenges of build a Typescript monorepo is to build shared Typescript libraries. Packages are transpiled in `cjs`, `esm` (thanks to [Babel](https://babeljs.io/)) and `.d.ts` Typescript declaration file, to enable any usage across the monorepo.
 
 ### Jest
 
@@ -80,20 +118,20 @@ Every package has testing configured through [`jest`](https://jestjs.io/), with 
 
 ### VS Code support
 
-Each package in the monorepo is defined as a workspace in the multi-root workspaces. It enables easier browsing and searching features.
+Each package in the monorepo is defined as a workspace in the multi-root workspaces. It enables easier browsing and searching features, bringing the same navigation than in a standard codebase.
 
 Using multi-root workspaces makes it possible to use the great [`vs-code` extension](https://github.com/jest-community/vscode-jest#how-to-use-the-extension-with-monorepo-projects), which makes it possible to run and debug tests directly inside VS Code.
 
 ## 🎁 Wrapping up
 
-Be sure to check out https://www.swarmion.dev/ for docs about swarmion, the [template repo](https://github.com/swarmion/template) and the [main repo](https://github.com/swarmion/swarmion), any feedback is greatly welcomed !
+Be sure to check out https://www.swarmion.dev/ for docs about Swarmion, the [template repo](https://github.com/swarmion/template) and the [tools repo](https://github.com/swarmion/swarmion). Any feedback is greatly welcomed!
 
 ### 🎄 Upcoming features
 
 Swarmion is being maintained by a core team of several people, we are striving to deliver more and more features:
 
 - a `create-swarmion-app` script to create an app even more easily
-- contracts library to define between services
+- contracts library to define type-safe and runtime interactions between services
 - frontend and frontend library generators
 
 ### 🤝 Acknowledgments
@@ -102,4 +140,4 @@ Thanks to the swarmion team: [Adrien Cacciaguerra](https://github.com/orgs/swarm
 
 Thanks to all the contributors !
 
-Thanks to [Theodo](https://www.theodo.fr/) for sponsoring the project !
+Thanks to [Theodo](https://www.theodo.fr/) for sponsoring this project !
