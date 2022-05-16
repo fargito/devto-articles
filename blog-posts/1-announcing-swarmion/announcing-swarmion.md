@@ -1,8 +1,8 @@
 ---
-published: false
+published: true
 title: 'Introducing Swarmion 🐝, a framework for shipping type-safe Serverless microservices at scale'
-cover_image:
-description: 'Description of the article'
+cover_image: TODO
+description: TODO
 tags: serverless, typescript, monorepo, microservices
 series:
 canonical_url:
@@ -134,9 +134,11 @@ Swarmion is being maintained by a core team of several people, we are striving t
 - contracts library to define type-safe and runtime interactions between services
 - frontend and frontend library generators
 
+## TODO mettre nos têtes et nos socials #ad
+
 ### 🤝 Acknowledgments
 
-Thanks to the swarmion team: [Adrien Cacciaguerra](https://github.com/orgs/swarmion/people/adriencaccia), [François Farge](https://github.com/orgs/swarmion/people/fargito), [Guillaume Duboc](https://github.com/orgs/swarmion/people/guillaumeduboc), [Maxime Vivier](https://github.com/orgs/swarmion/people/MaximeVivier), [Axel Fournier](https://github.com/orgs/swarmion/people/Sc0ra) and [Stanislas Hannebelle](https://github.com/orgs/swarmion/people/StanHannebelle).
+Thanks to the swarmion team: [Adrien Cacciaguerra](https://github.com/adriencaccia), [François Farge](https://github.com/fargito), [Guillaume Duboc](https://github.com/guillaumeduboc), [Maxime Vivier](https://github.com/MaximeVivier), [Axel Fournier](https://github.com/Sc0ra) and [Stanislas Hannebelle](https://github.com/StanHannebelle).
 
 Thanks to all the contributors !
 
