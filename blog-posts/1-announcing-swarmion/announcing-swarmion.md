@@ -138,14 +138,15 @@ Swarmion is being maintained by a core team of several people, we are striving t
 
 ### 🤝 Acknowledgments
 
-![Adrien Cacciaguerra](./static/adrien.jpeg)
+![Adrien Cacciaguerra](./static/adrien.jpg)
 
-|                       toto                        |       ![François Farge](./static/francois.jpeg)       |
-| :-----------------------------------------------: | :---------------------------------------------------: |
-| [@adriencaccia](https://twitter.com/adriencaccia) | [@farge_francois](https://twitter.com/farge_francois) |
-|  [adriencaccia](https://github.com/adriencaccia)  |         [fargito](https://github.com/fargito)         |
+[@adriencaccia](https://twitter.com/adriencaccia) - [adriencaccia](https://github.com/adriencaccia)
 
-Thanks to the swarmion team: [Adrien Cacciaguerra](https://github.com/adriencaccia), [François Farge](https://github.com/fargito), [Guillaume Duboc](https://github.com/guillaumeduboc), [Maxime Vivier](https://github.com/MaximeVivier), [Axel Fournier](https://github.com/Sc0ra) and [Stanislas Hannebelle](https://github.com/StanHannebelle).
+![François Farge](./static/francois.jpeg)
+
+[@farge_francois](https://twitter.com/farge_francois) - [fargito](https://github.com/fargito)
+
+Thanks to the swarmion team: [Guillaume Duboc](https://github.com/guillaumeduboc), [Maxime Vivier](https://github.com/MaximeVivier), [Axel Fournier](https://github.com/Sc0ra) and [Stanislas Hannebelle](https://github.com/StanHannebelle).
 
 Thanks to all the contributors!
 
