@@ -1,29 +1,29 @@
 ---
-published: true
-title: 'Introducing Swarmion 🐝, a framework for shipping type-safe Serverless microservices at scale'
+published: false
+title: 'Introducing Swarmion 🐝, a Type-safe Serverless Microservices Framework'
 cover_image: TODO
 description: TODO
-tags: serverless, typescript, monorepo, microservices
+tags: serverless, typescript, monorepo, microservices, swarmion
 series:
 canonical_url:
 ---
 
-The serverless computing paradigm introduced a lots of opportunities to create more scalable and cost-efficient software, but it also came with its lot of challenges, some of which we harshly experienced.
+The serverless computing paradigm introduced a lot of opportunities to create more scalable and cost-efficient software, but it also came with many challenges, some of which we harshly experienced.
 
-After more than two years spent building multiple real world applications, ranging from small startups to large groups, we have decided to share our learnings and help other teams build awesome products.
+After more than two years spent building multiple real-world applications, ranging from small startups to large groups, we decided to share our learnings and help other teams build awesome products.
 
 This is why we would like to introduce **Swarmion**, an open-source framework, dedicated to Serverless microservices. A great emphasis has been done on developer experience, since working with a Typescript monorepo is a challenge.
 
 ## What is Swarmion? 🐝
 
-Swarmion is an open-source Framework for building Type-safe Serverless microservices at scale. It takes full advantage of the **Serverless Framework** to handle deployment and provisioning of resources, while adding support for microservices and end-to-end type-safety.
+Swarmion is an open-source framework for building type-safe Serverless microservices at scale. It takes full advantage of the **Serverless Framework** to handle provisioning and deployment of resources, while adding support for microservices and end-to-end type-safety.
 
 It is composed of two parts:
 
 - a **template** for starting state-of-the-art projects
 - a set of **tools and plugins**, to ease the communication between microservices and secure their deployment
 
-Today, we are going to focus on the first part, more articles to come...
+Today, we are going to focus on the first part, stay tuned for more articles...
 
 ## TL:DR, create an app using the swarmion template
 
@@ -96,7 +96,7 @@ Yarn 3 and workspaces allows to create a monorepo with multiple packages, each w
 
 ### Nx
 
-A powerful and extensible build system, Nx, is used in the template to manage dependencies between packages, provide visualization of the monorepo dependencies through the [`yarn nx graph` command](https://nx.dev/cli/dep-graph) and gain access to powerful custom generators. Our [nx plugin](https://www.swarmion.dev/docs/code-structure/nx-plugin) already has two generators, for libraries and serverless services (more are coming).
+A powerful and extensible build system, [Nx](https://nx.dev), is used to manage dependencies between packages, provide visualization of the monorepo dependencies through the [`yarn nx graph` command](https://nx.dev/cli/dep-graph) and gain access to powerful custom generators. Our [nx plugin](https://www.swarmion.dev/docs/code-structure/nx-plugin) already has two generators, for libraries and serverless services (more are coming).
 
 Nx also avoids unnecessary computation when running commands inside the monorepo, using local caching and changes detection for an smooth developer experience and an optimized CI/CD.
 
@@ -110,7 +110,7 @@ A comprehensive set of formatting (through [`eslint-plugin-prettier`](https://gi
 
 ### Shared Typescript libraries
 
-One of the main challenges of build a Typescript monorepo is to build shared Typescript libraries. Packages are transpiled in `cjs`, `esm` (thanks to [Babel](https://babeljs.io/)) and `.d.ts` Typescript declaration file, to enable any usage across the monorepo.
+One of the main challenges of a Typescript monorepo is to build shared Typescript libraries. Packages are transpiled in `cjs`, `esm` (thanks to [Babel](https://babeljs.io/)) and `.d.ts` Typescript declaration file, to enable any usage across the monorepo.
 
 ### Jest
 
@@ -124,15 +124,15 @@ Using multi-root workspaces makes it possible to use the great [`vs-code` extens
 
 ## 🎁 Wrapping up
 
-Be sure to check out https://www.swarmion.dev/ for docs about Swarmion, the [template repo](https://github.com/swarmion/template) and the [tools repo](https://github.com/swarmion/swarmion). Any feedback is greatly welcomed!
+Be sure to check out https://www.swarmion.dev/ for docs about Swarmion, the [template repo](https://github.com/swarmion/template) and the [tools repo](https://github.com/swarmion/swarmion). Any feedback is welcome!
 
 ### 🎄 Upcoming features
 
 Swarmion is being maintained by a core team of several people, we are striving to deliver more and more features:
 
 - a `create-swarmion-app` script to create an app even more easily
-- contracts library to define type-safe and runtime interactions between services
-- frontend and frontend library generators
+- more contracts in [our library](https://www.npmjs.com/package/@swarmion/serverless-contracts) to define type-safe and runtime interactions between services
+- frontend generators for apps and libraries
 
 ## TODO mettre nos têtes et nos socials #ad
 
