@@ -138,13 +138,9 @@ Swarmion is being maintained by a core team of several people, we are striving t
 
 ### 🤝 Acknowledgments
 
-![Adrien Cacciaguerra](./static/adrien.jpg)
+![Adrien Cacciaguerra](./static/adrien.jpg) - [@adriencaccia](https://twitter.com/adriencaccia) - [adriencaccia](https://github.com/adriencaccia)
 
-[@adriencaccia](https://twitter.com/adriencaccia) - [adriencaccia](https://github.com/adriencaccia)
-
-![François Farge](./static/francois.jpg)
-
-[@farge_francois](https://twitter.com/farge_francois) - [fargito](https://github.com/fargito)
+![François Farge](./static/francois.jpg) - [@farge_francois](https://twitter.com/farge_francois) - [fargito](https://github.com/fargito)
 
 Thanks to the swarmion team: [Guillaume Duboc](https://github.com/guillaumeduboc), [Maxime Vivier](https://github.com/MaximeVivier), [Axel Fournier](https://github.com/Sc0ra) and [Stanislas Hannebelle](https://github.com/StanHannebelle).
 
