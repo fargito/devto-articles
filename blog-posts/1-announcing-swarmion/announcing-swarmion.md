@@ -25,11 +25,9 @@ It is composed of two parts:
 
 Today, we are going to focus on the first part, stay tuned for more articles...
 
-### TL:DR, create an app using the swarmion template
+**TL:DR: try it out**! Head to the end of this article for a quick tutorial!
 
-Head to the end of this article for a quick tutorial!
-
-## Our core beliefs
+# Our core beliefs
 
 ### Your codebase should adapt to your team organization
 
@@ -43,7 +41,7 @@ Having several teams working in the same environment requires efficient collabor
 
 As your codebase grows, testing and deployment times are likely to skyrocket. Swarmion uses optimized low-level software (esbuild, vitejs) to reduce testing and building times and a smart monorepo management tool ([Nx](https://nx.dev/)) to provide a top-level developer experience and reduce CI/CD delays.
 
-## ✨ Template features
+# ✨ Template features
 
 The template comes with state of the art tooling for a Typescript monorepo. The main philosophy is to allow easy customization of the different tools used in the packages, without having to write too many code; every tool can be configured at the root level and extended through composition at the package level.
 
@@ -79,7 +77,7 @@ Each package in the monorepo is defined as a workspace in the multi-root workspa
 
 Using multi-root workspaces makes it possible to use the great [`vs-code` extension](https://github.com/jest-community/vscode-jest#how-to-use-the-extension-with-monorepo-projects), which makes it possible to run and debug tests directly inside VS Code.
 
-## Generate a project with Swarmion
+# Generate a project with Swarmion
 
 To create a Swarmion project, head to [https://github.com/swarmion/template](https://www.github.com/swarmion/template).
 
@@ -126,7 +124,7 @@ The generated repo will have the following structure.
 
 To learn more about this structure, head to the [documentation](https://www.swarmion.dev/docs/code-structure/monorepo)!
 
-## 🎁 Wrapping up
+# 🎁 Wrapping up
 
 Be sure to check out https://www.swarmion.dev/ for docs about Swarmion, the [template repo](https://github.com/swarmion/template) and the [tools repo](https://github.com/swarmion/swarmion). Any feedback is welcome!
 
