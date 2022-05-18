@@ -3,7 +3,7 @@ published: false
 title: 'Introducing Swarmion 🐝, a Type-safe Serverless Microservices Framework'
 cover_image: TODO
 description: TODO
-tags: serverless, typescript, monorepo, microservices, swarmion
+tags: serverless, typescript, monorepo, microservices
 series:
 canonical_url:
 ---
