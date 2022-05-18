@@ -138,7 +138,9 @@ Swarmion is being maintained by a core team of several people, we are striving t
 
 ### 🤝 Acknowledgments
 
-|   ![Adrien Cacciaguerra](./static/adrien.jpeg)    |       ![François Farge](./static/francois.jpeg)       |
+![Adrien Cacciaguerra](./static/adrien.jpeg)
+
+|                       toto                        |       ![François Farge](./static/francois.jpeg)       |
 | :-----------------------------------------------: | :---------------------------------------------------: |
 | [@adriencaccia](https://twitter.com/adriencaccia) | [@farge_francois](https://twitter.com/farge_francois) |
 |  [adriencaccia](https://github.com/adriencaccia)  |         [fargito](https://github.com/fargito)         |
