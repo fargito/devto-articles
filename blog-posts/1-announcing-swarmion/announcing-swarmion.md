@@ -142,7 +142,7 @@ Swarmion is being maintained by a core team of several people, we are striving t
 
 [@adriencaccia](https://twitter.com/adriencaccia) - [adriencaccia](https://github.com/adriencaccia)
 
-![François Farge](./static/francois.jpeg)
+![François Farge](./static/francois.jpg)
 
 [@farge_francois](https://twitter.com/farge_francois) - [fargito](https://github.com/fargito)
 
