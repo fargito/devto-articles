@@ -8,7 +8,7 @@ series:
 canonical_url:
 ---
 
-The serverless computing paradigm introduced a lot of opportunities to create more scalable and cost-efficient software, but it also came with many challenges, some of which we harshly experienced.
+The serverless computing paradigm introduced a lot of opportunities to create more scalable and cost-efficient software, but it also came with its own challenges, some of which we harshly experienced.
 
 After more than two years spent building multiple real-world applications, ranging from small startups to large groups, we decided to share our learnings and help other teams build awesome products.
 
@@ -27,50 +27,7 @@ Today, we are going to focus on the first part, stay tuned for more articles...
 
 ## TL:DR, create an app using the swarmion template
 
-To create a Swarmion project, head to [https://github.com/swarmion/template](https://www.github.com/swarmion/template).
-
-Click the "use this template" button
-
-![Use this template button](./static/use_this_template_button.png)
-
-And you're all set! Follow the [install docs](https://www.swarmion.dev/docs/getting-started/installation).
-
-## Quick overview
-
-The generated repo will have the following structure.
-
-```
-├── backend/
-|   ├── core/                       # core service
-|   ├── users/                      # users service
-|   └── ...                         # other deployed services
-|
-├── frontend/
-|   ├── app/
-|   ├── cloudfront/
-|   └── ...                         # other deployed services
-|
-├── commonConfiguration/            # configuration files such as jest, babel...
-|   ├── babel.config.js
-|   └── lintstaged-base-config.js
-|
-├── contracts/                      # JSONSchema-based binding contracts.
-|   ├── core-contracts/
-|   ├── users-contracts/
-|   └── ...                         # other contracts, used between deployed services
-|
-├── packages/
-|   ├── configuration/              # common constants used in all services
-|   ├── serverless-configuration/   # common constants used in all serverless deployed services
-|   ├── serverless-helpers/         # a set of shared helpers
-|   └── ...                         # other internal shared packages
-|
-├── package.json                   # shared dependencies and global scripts
-└── yarn.lock                      # unique lock file, using yarn workspaces
-
-```
-
-To learn more about this structure, head to the [documentation](https://www.swarmion.dev/docs/code-structure/monorepo)!
+Head to the end of this article for a quick tutorial!
 
 ## Our core beliefs
 
@@ -121,6 +78,53 @@ Every package has testing configured through [`jest`](https://jestjs.io/), with 
 Each package in the monorepo is defined as a workspace in the multi-root workspaces. It enables easier browsing and searching features, bringing the same navigation than in a standard codebase.
 
 Using multi-root workspaces makes it possible to use the great [`vs-code` extension](https://github.com/jest-community/vscode-jest#how-to-use-the-extension-with-monorepo-projects), which makes it possible to run and debug tests directly inside VS Code.
+
+## Generate a project with Swarmion
+
+To create a Swarmion project, head to [https://github.com/swarmion/template](https://www.github.com/swarmion/template).
+
+Click the "use this template" button
+
+![Use this template button](./static/use_this_template_button.png)
+
+And you're all set! Follow the [install docs](https://www.swarmion.dev/docs/getting-started/installation).
+
+## Quick overview
+
+The generated repo will have the following structure.
+
+```
+├── backend/
+|   ├── core/                       # core service
+|   ├── users/                      # users service
+|   └── ...                         # other deployed services
+|
+├── frontend/
+|   ├── app/
+|   ├── cloudfront/
+|   └── ...                         # other deployed services
+|
+├── commonConfiguration/            # configuration files such as jest, babel...
+|   ├── babel.config.js
+|   └── lintstaged-base-config.js
+|
+├── contracts/                      # JSONSchema-based binding contracts.
+|   ├── core-contracts/
+|   ├── users-contracts/
+|   └── ...                         # other contracts, used between deployed services
+|
+├── packages/
+|   ├── configuration/              # common constants used in all services
+|   ├── serverless-configuration/   # common constants used in all serverless deployed services
+|   ├── serverless-helpers/         # a set of shared helpers
+|   └── ...                         # other internal shared packages
+|
+├── package.json                   # shared dependencies and global scripts
+└── yarn.lock                      # unique lock file, using yarn workspaces
+
+```
+
+To learn more about this structure, head to the [documentation](https://www.swarmion.dev/docs/code-structure/monorepo)!
 
 ## 🎁 Wrapping up
 
