@@ -2,8 +2,8 @@
 published: false
 title: 'Introducing Swarmion 🐝, a Type-safe Serverless Microservices Framework'
 cover_image: TODO
-description: TODO
-tags: serverless, typescript, monorepo, microservices
+description: Build and deploy real-world Serverless applications at scale with Swarmion!
+tags: serverless, typescript, monorepo, microservices, swarmion
 series:
 canonical_url:
 ---
@@ -25,7 +25,7 @@ It is composed of two parts:
 
 Today, we are going to focus on the first part, stay tuned for more articles...
 
-## TL:DR, create an app using the swarmion template
+### TL:DR, create an app using the swarmion template
 
 Head to the end of this article for a quick tutorial!
 
