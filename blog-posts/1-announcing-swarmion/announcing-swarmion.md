@@ -77,7 +77,7 @@ Each package in the monorepo is defined as a workspace in the multi-root workspa
 
 Using multi-root workspaces makes it possible to use the great [`vs-code` extension](https://github.com/jest-community/vscode-jest#how-to-use-the-extension-with-monorepo-projects), which makes it possible to run and debug tests directly inside VS Code.
 
-# Generate a project with Swarmion
+# 🛠 Generate a project with Swarmion
 
 To create a Swarmion project, head to [https://github.com/swarmion/template](https://www.github.com/swarmion/template).
 
@@ -106,7 +106,7 @@ The generated repo will have the following structure.
 |   ├── babel.config.js
 |   └── lintstaged-base-config.js
 |
-├── contracts/                      # JSONSchema-based binding contracts.
+├── contracts/                      # JSONSchema-based binding contracts
 |   ├── core-contracts/
 |   ├── users-contracts/
 |   └── ...                         # other contracts, used between deployed services
@@ -136,11 +136,12 @@ Swarmion is being maintained by a core team of several people, we are striving t
 - more contracts in [our library](https://www.npmjs.com/package/@swarmion/serverless-contracts) to define type-safe and runtime interactions between services
 - frontend generators for apps and libraries
 
-## TODO mettre nos têtes et nos socials #ad
-
-TODO
-
 ### 🤝 Acknowledgments
+
+|    ![Adrien Cacciaguerra](./static/adrien.png)    |       ![François Farge](./static/francois.jpeg)       |
+| :-----------------------------------------------: | :---------------------------------------------------: |
+| [@adriencaccia](https://twitter.com/adriencaccia) | [@farge_francois](https://twitter.com/farge_francois) |
+|  [adriencaccia](https://github.com/adriencaccia)  |         [fargito](https://github.com/fargito)         |
 
 Thanks to the swarmion team: [Adrien Cacciaguerra](https://github.com/adriencaccia), [François Farge](https://github.com/fargito), [Guillaume Duboc](https://github.com/guillaumeduboc), [Maxime Vivier](https://github.com/MaximeVivier), [Axel Fournier](https://github.com/Sc0ra) and [Stanislas Hannebelle](https://github.com/StanHannebelle).
 
