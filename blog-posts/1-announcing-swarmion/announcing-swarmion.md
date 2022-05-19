@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 title: 'Introducing Swarmion 🐝, a Type-safe Serverless Microservices Framework'
 cover_image:
 description: Build and deploy real-world Serverless applications at scale with Swarmion!
