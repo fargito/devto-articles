@@ -53,7 +53,7 @@ The simplest one tests the interactions between EventBridge and `onOrderCreated`
 
 ![First integration test](./static/first-integration-test.png)
 
-In order to validate that EventBridge and `onOrderCreated` are correctly configured, we can simply put an event matching the correct pattern in EventBridge at the beginning of our test, then wait and check that our lambda has been invoked, for example, by checking CloudWatch logs. <insert link to external resources>
+In order to validate that EventBridge and `onOrderCreated` are correctly configured, we can simply put an event matching the correct pattern in EventBridge at the beginning of our test, then wait and check that our lambda has been invoked, for example, by checking CloudWatch logs.
 
 The second integration test is more complex and aims to check the interactions between the resources at the start of our process.
 
@@ -66,8 +66,6 @@ Here, the goal of our integration test is to call the endpoint provided by API G
 Testing event-driven architectures is a whole topic in itself, but in particular, EventBridge doesn’t make it easier.
 
 But what makes EventBridge-powered applications so difficult to test? EventBridge provides no way of listing events that have transited through it, or event check that an event has been put to it. It makes a lot of sense in a production environment, but in order to check that our code has produced some events, it does make our life harder.
-
-<insert I aint no snitch gif>
 
 In order to assert that events have transited through a bus, we need to project them somehow in an observable place.
 
