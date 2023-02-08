@@ -73,7 +73,7 @@ In order to assert that events have transited through a bus, we need to project 
 
 In order to bypass EventBridge's limitations on the testing topic, I searched for an existing tool.
 
-But would I want from this tool?
+But what would I want from this tool?
 
 - I’d want it to be **simple** to set up. Developers need to encounter the least possible friction to write good integration tests
 - I’d want it to be **scalable**: I need my integration tests to be able to run in parallel without interference
