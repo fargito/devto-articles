@@ -124,7 +124,7 @@ Making our testing infrastructure scalable requires that our tests can be run in
 
 Therefore, a test suite’s sequence diagram looks like the following:
 
-![Sequence diagram](./static/sequence-diagram.png)
+![Sequence diagram](./static/test-sequence-diagram.png)
 
 From an architectural point of view, let’s dive in this sequence:
 
