@@ -10,7 +10,7 @@ canonical_url:
 
 When building event-driven Serverless applications on AWS, EventBridge is a must-have. It's simple to use, scalable and inexpensive.
 
-However, a challenge I often faced during my event-driven projects was testing. I could not find an easy way to validate that the events sent by my application were matching my expectations. The critical challenge was to list events sent through an event bus, which is not natively possible with EventBridge.
+However, a challenge I often faced on event-driven projects was testing. I could not find an easy way to validate that the events sent by my application were matching my expectations. The critical challenge was to list events sent through an event bus, which is not natively possible with EventBridge.
 
 ## TL;DR
 
@@ -26,9 +26,9 @@ For example, let’s imagine a very simple application with EventBridge:
 
 ![Simple Asynchronous Architecture](./static/simple-asynchronous-architecture.png)
 
-In this architecture, we have two Lambdas, the first one synchronously triggered by ApiGateway. This Lambda then puts an _ORDER_CREATED_ event into EventBridge. That event triggers the execution of a second lambda. Pretty simple, right?
+In this architecture, we have two Lambdas. The first one is synchronously triggered by ApiGateway. It then puts an _ORDER_CREATED_ event into EventBridge. That event triggers the execution of a second Lambda. Pretty simple, right?
 
-However, we need to be aware of what could go wrong in our application:
+However, many things could go wrong in our system:
 
 - our **application** code can behave unexpectedly and fail to send the event
 
@@ -41,11 +41,11 @@ However, we need to be aware of what could go wrong in our application:
 
 ![Configuration issues](./static/configuration-issues.png)
 
-To alleviate these potential risks, there are 3 levels at which we can test this application:
+To alleviate these risks, we can test our system at 3 different levels:
 
-- **unit tests**: they can address the **application** failure cause. They validate that the code behaves as expected, and mock its external interactions. Efficient unit testing for Lambda is a complex topic in itself, that I will address in another article on hexagonal architecture for Serverless
-- **integration tests**: they take several components of the system and assert that they behave as expected together There are multiple types of integration tests, and in particular [cloud-native integration tests](https://dev.to/kumo/stop-using-a-local-environment-to-develop-serverless-applications-43a3). Fortunately for us, these tests can prevent our **configuration** failure cause
-- **end-to-end tests**: they consider our whole system as a black box and only interact with its interface. They are beyond the scope of this article
+- **unit tests**: they can address the **application** failure cause. They validate that the code behaves as expected, and mock its external interactions. Efficient unit testing for Lambda is a complex topic in itself, that I will address in another article about hexagonal architecture for Serverless
+- **integration tests**: they assert that several components in our system behave as expected together. There are multiple types of integration tests, and in particular [cloud-native integration tests](https://dev.to/kumo/stop-using-a-local-environment-to-develop-serverless-applications-43a3). Fortunately for us, these tests can prevent our **configuration** failure cause
+- **end-to-end tests**: they consider our whole system as a black box and only interact with its interfaces. They are beyond the scope of this article
 
 During the rest of this article, we will focus on **integration tests** and **EventBridge**. In our system, two integration tests would seem relevant.
 
@@ -53,27 +53,27 @@ The simplest one tests the interactions between EventBridge and `onOrderCreated`
 
 ![First integration test](./static/first-integration-test.png)
 
-In order to validate that EventBridge and `onOrderCreated` are correctly configured, we can simply put an event matching the correct pattern in EventBridge at the beginning of our test, then wait and check that our lambda has been invoked, for example, by checking CloudWatch logs.
+In order to validate that EventBridge and `onOrderCreated` are correctly configured, we can simply put a valid event in EventBridge at the beginning of our test, then wait and check that our Lambda has been invoked, by checking CloudWatch logs for example.
 
 The second integration test is more complex and aims to check the interactions between the resources at the start of our process.
 
 ![Second integration test](./static/second-integration-test.png)
 
-Here, the goal of our integration test is to call the endpoint provided by API Gateway and assert that the `createOrder` Lambda function has sent an event matching our expectations in EventBridge. And this is where it gets truly complicated.
+Here, the goal of our test is to call the endpoint provided by API Gateway and assert that the `createOrder` Lambda has sent an event matching our expectations in EventBridge. And this is where it gets truly complicated.
 
 ## Events? What events?
 
 Testing event-driven architectures is a whole topic in itself, but in particular, EventBridge doesn’t make it easier.
 
-But what makes EventBridge-powered applications so difficult to test? EventBridge provides no way of listing events that have transited through it, or event check that an event has been put to it. It makes a lot of sense in a production environment, but in order to check that our code has produced some events, it does make our life harder.
+But what makes EventBridge-powered applications so difficult to test? EventBridge provides no way of listing events it has received, or check that an event has been put to it. While these features would make little sense in a production environment, they would have been much helpful to check that our code has produced some events.
 
 In order to assert that events have transited through a bus, we need to project them somehow in an observable place.
 
 ## Searching for an EventBridge testing tool
 
-In order to bypass EventBridge limitations on the testing topic, I searched for an existing tool.
+In order to bypass EventBridge's limitations on the testing topic, I searched for an existing tool.
 
-But first, I wondered, what would I want from this tool?
+But would I want from this tool?
 
 - I’d want it to be **simple** to set up. Developers need to encounter the least possible friction to write good integration tests
 - I’d want it to be **scalable**: I need my integration tests to be able to run in parallel without interference
@@ -83,7 +83,7 @@ But first, I wondered, what would I want from this tool?
 In found several solutions online:
 
 - Setting up [a Step Function](https://aws.amazon.com/blogs/compute/testing-amazon-eventbridge-events-using-aws-step-functions/) for each test
-- Creating an EventBridge target to dump events to SQS. This approach was proposed in several articles ([here](https://medium.com/serverless-transformation/bridge-integrity-integration-testing-strategy-for-eventbridge-based-serverless-architectures-b73529397251) and [here](https://serverlessfirst.com/eventbridge-testing-guide/)) and implemented in [sls-test-tools](https://github.com/aleios-cloud/sls-test-tools)
+- Creating an EventBridge target to dump events to SQS. This approach was proposed in several articles ([here](https://medium.com/serverless-transformation/bridge-integrity-integration-testing-strategy-for-eventbridge-based-serverless-architectures-b73529397251) and [here](https://serverlessfirst.com/eventbridge-testing-guide/)) and implemented in the [sls-test-tools](https://github.com/aleios-cloud/sls-test-tools) library
 - Using CloudWatch to dump and debug events, [introduced by David Boyne](https://www.boyney.io/blog/2021-04-15-debug-eventbridge-events-with-cloudwatch). Although it was not directly aimed at testing, maybe this solution could be used for integration tests
 
 I wanted to evaluate the perks and drawbacks of each solution, so I scored them against my constraints and put them in a comparative table:
@@ -94,17 +94,17 @@ I wanted to evaluate the perks and drawbacks of each solution, so I scored them 
 | **SQS** | ✅ NPM package <br>✅ Automated resources creation | ❌ No parallelism: SQS can only have one consumer <br>⚠️ [SQS creation limits](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_DeleteQueue.html) | ✅ Pay-as-you-go<br>⚠️ No automatic disabling of resources | ✅ IAM |
 | **CloudWatch** | ❌ Manual setup required | ✅ Unlimited parallel reads | ❌ CloudWatch logs are expensive!<br>❌ No automatic rule disabling | ✅ IAM<br>⚠️ Sensible event data may persist in the logs |
 
-Although all of these solutions inspired me and made me realize that testing EventBridge was possible, it seemed none of them completely fulfilled my requirements.
+Although all of these solutions inspired me and made me realize that testing EventBridge was possible, none of them completely fulfilled my requirements.
 
 ## Building a scalable EventBridge testing infrastructure
 
-Having considered that existing tools would not fill my requirements, I decided to build and open-source a solution.
+I therefore decided to build and open-source an EventBridge integration tests library. This is why I am very proud to introduce **EventScout**!
 
-Obviously, I kept the same requirements I had applied to existing online solutions.
+It is designed following the requirements I had applied to existing online solutions.
 
 ### Simple to use
 
-EventScout is composed of two highly reusable parts
+EventScout is composed of two highly reusable parts:
 
 - A CDK construct to deploy the necessary resources
 - A lightweight client to use in the tests, for example with Jest of Vitest
