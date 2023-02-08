@@ -124,19 +124,7 @@ Making our testing infrastructure scalable requires that our tests can be run in
 
 Therefore, a test suite’s sequence diagram looks like the following:
 
-```mermaid
-sequenceDiagram
-    autonumber
-    actor Test
-    participant EventScout
-    participant EventBridge
-    Test->>EventScout: Start event trail with this pattern
-    Test-->>EventBridge: Generate an event matching the pattern
-    EventBridge-->>EventScout: Receive the monitored event
-    EventScout->>EventScout: Store the monitored event in the trail
-    Test->>EventScout: Query the events in the trail
-    Test->>EventScout: Close the trail
-```
+![Sequence diagram](./static/sequence-diagram.png)
 
 From an architectural point of view, let’s dive in this sequence:
 
