@@ -203,4 +203,4 @@ npm install --save-dev @event-scout/client
 
 Then you can head to [the documentation](https://github.com/fargito/event-scout/blob/main/packages/client/README.md) for details on how to instantiate and use the client in your tests.
 
-Congratulations, you have unlocked the power of EventScout! Use it wisely…
+Congratulations, you have unlocked the power of EventScout! Use it wisely...
