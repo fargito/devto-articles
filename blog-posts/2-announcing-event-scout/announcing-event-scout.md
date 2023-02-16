@@ -16,6 +16,18 @@ However, a challenge I often faced on event-driven projects was testing. I could
 
 I made a cool EventBridge integration testing library for Typescript, [check it out](https://github.com/fargito/event-scout)!
 
+- [What could go wrong in my event-driven architecture?](#what-could-go-wrong-in-my-event-driven-architecture)
+- [Events? What events](#events-what-events)
+- [Searching for and EventBridge testing tool](#searching-for-an-eventbridge-testing-tool)
+- [Building a scalable EventBridge testing infrastructure](#building-a-scalable-eventbridge-testing-infrastructure)
+  - [Simple to use](#simple-to-use)
+  - [Scalable](#scalable)
+  - [Cheap](#cheap)
+  - [Secure](#secure)
+- [Use EventScout in your infrastructure](#use-eventscout-on-your-infrastructure)
+  - [Deploy resources with EventScout](#deploy-resources-with-eventscout-construct)
+  - [Use the EventScout client in your tests](#use-the-eventscout-client-in-your-tests)
+
 ## What could go wrong in my event-driven architecture?
 
 Since its initial release in 2019, EventBridge has been widely used to build event-driven Architecture on AWS, progressively replacing older tools such as SQS and SNS (although these still have valid specific use cases).
