@@ -1,8 +1,8 @@
 ---
 published: false
-title: 'Introducing EventScout: Easy Integration Tests for Event-Driven AWS Architectures'
+title: 'Introducing EventScout: Easy Integration Tests for Event-Driven AWS Architectures 📨🔭'
 cover_image:
-description: EventScout secures your event-driven applications!
+description: EventScout is a Typescript library to help you secure your event-driven applications!
 tags: eventbridge, integration, tests, typescript
 series:
 canonical_url:
